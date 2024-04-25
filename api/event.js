@@ -66,7 +66,8 @@ export default function event(server, mongoose) {
         name: req.body.name,
         date: req.body.date,
         marketing: req.body.marketing,
-        venue: req.body.venue
+        venue: req.body.venue,
+        guestList: req.body.guestList
       });
       const savedObject = await newObject.save();
       res.status(201).json(savedObject);
@@ -85,6 +86,7 @@ export default function event(server, mongoose) {
           date: req.body.date,
           marketing: req.body.marketing,
           venue: req.body.venue,
+          guestList: req.body.guestList
         }
       }, { new: true });  // Optionen { new: true } ser till att den uppdaterade användaren returneras
 

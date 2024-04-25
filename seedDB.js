@@ -4,19 +4,19 @@ import Event from "./model/EventSchema.js"
 import Guest from './model/GuestSchema.js';
 import Venue from './model/VenueSchema.js';
 
-let eventIdList = []
-let venueIdList = []
+const venueIdList = []
+const guestIdList = []
 const startDate = new Date('2024-05-01');
 const endDate = new Date('2024-12-31');
-const times = 1
+const times = 2
 const marketingTool = "newspaper";
 
 async function seedDB() {
   try {
     mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
     await createVenue(times)
-    await createEvent(times)
     await createGuest(times)
+    await createEvent(times)
   } catch (error) {
     console.log(`Errormessage: ${error}`)
   }
@@ -40,17 +40,15 @@ async function createVenue(amount) {
   }
 }
 
-async function createEvent(amount) {
+async function createGuest(amount) {
   for (let i = 0; i < amount; i++) {
-    const newObject = new Event({
-      name: faker.music.songName(),
-      date: faker.date.between({ from: startDate, to: endDate }).toISOString().split('T')[0],
-      marketing: marketingTool,
-      venue: venueIdList[i]
+    const newObject = new Guest({
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
     })
     await newObject.save()
       .then(object => {
-        eventIdList.push(object._id)
+        guestIdList.push(object._id)
       })
       .catch(err => {
         console.error(err);
@@ -58,16 +56,16 @@ async function createEvent(amount) {
   }
 }
 
-async function createGuest(amount) {
+async function createEvent(amount) {
   for (let i = 0; i < amount; i++) {
-    for (let j = 0; j < amount * 2; j++) {
-      const newObject = new Guest({
-        name: faker.person.fullName(),
-        email: faker.internet.email(),
-        event: eventIdList[i]
-      })
-      await newObject.save()
-    }
+    const newObject = new Event({
+      name: faker.music.songName(),
+      date: faker.date.between({ from: startDate, to: endDate }).toISOString().split('T')[0],
+      marketing: marketingTool,
+      venue: venueIdList[i],
+      guestList: guestIdList
+    })
+    await newObject.save()
   }
 }
 

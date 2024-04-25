@@ -37,7 +37,6 @@ export default function guest(server, mongoose) {
         const newObject = new Guest({
           name: data.name,
           email: data.email,
-          event: data.event
         });
 
         const savedObject = await newObject.save();
@@ -59,7 +58,6 @@ export default function guest(server, mongoose) {
         $set: {
           name: req.body.name,
           email: eq.body.email,
-          event: eq.body.event
         }
       }, { new: true });  // Optionen { new: true } ser till att den uppdaterade användaren returneras
 

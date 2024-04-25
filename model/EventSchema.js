@@ -7,6 +7,7 @@ const eventSchema = new mongoose.Schema({
   date: Date,
   marketing: String,
   venue: { type: mongoose.Schema.Types.ObjectId, ref: 'Venue' },
+  guestList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Guest' }]
 });
 
 eventSchema.plugin(mongoosePaginate)

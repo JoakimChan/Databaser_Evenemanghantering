@@ -37,13 +37,13 @@
 ## 3. Ensure that the API returns the correct HTTP status code (e.g., 400 Bad Request) for an invalid request.
 
 ### Steps:
-1. Send a GET request to: http://localhost:3000/api/abc
+1. Send a GET request to: http://localhost:3000/api/guest/%
 
 ### Expected result
-- Status code: 404 Not Found
+- Status code: 400 Bad Request
 
 ### Result
-- Status code: 404 Not Found
+- Status code: 400 Bad Request
 
 ## 4. Test if the API returns the correct data when querying with specific filters or search criteria.
 
@@ -103,6 +103,7 @@
 
 ### Steps:
 1. Create a Postman folder or collection with multiple POST request to "Guest" list the same time.
+2. Run the folder
 
 ### Expected result
 - All the request should go through without conflictstions and mix/miss data.
@@ -155,10 +156,17 @@
 ## 11. Verify that the API can recover gracefully from failures, such as database connection issues without compromising data integrity.
 
 ### Steps:
+1. Create a parameters to disconnect from MongoDB: http://localhost:3000/api/event?disconnect=true
+2. Do a POST request
+3. Reconnect by doing a GET request
 
 ### Expected result
+- Expect when disconnected that the POST request wont go through
 
 ### Result
+- Status code 500 Internal Server Error
+- Terminal error message: MongoNotConnectedError: Client must be connected before running operations
+- Response body message:  
 
 ## 12. Test the API’s ability to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned.
 
@@ -169,6 +177,7 @@
 - An error massage
 
 ### Result
+- Status code 404 Not Found
 - The response body return a message
 ```
 {

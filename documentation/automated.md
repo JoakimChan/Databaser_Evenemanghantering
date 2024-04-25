@@ -64,74 +64,126 @@
 2. Send a Get request to: http://localhost:3000/api/event?page=1&limit=3
 
 ### Expected result
-- Expect response 
+- Expect the response to match the pagination parameters 
 
 ### Result
 - The response contain pagination list of information according what the URL are set: page = 1, limit = 3
 - The pagination result cointain: ex page, limit, totalPages
 
-## 6.
+## 6. Test if the API handles special characters and non-English text correctly in input data and returned responses using an automated testing tool.
 
 ### Steps:
+1. Implement test code that check response accept special caracters
+2. Send a POST request: http://localhost:3000/api/event , with name: "åäö"
+3. send a GET request: http://localhost:3000/api/event?name=åäö
+
+
+### Expected result
+- The GET response return the right data according to the parameters.
+
+### Result
+- API handles special characters.
+```
+{
+            "_id": "6626e246c859bfaff2f7a766",
+            "name": "åäö",
+            "date": "2024-11-03T00:00:00.000Z",
+            "marketing": "nätet",
+            "venue": "6626e0fa2ad36acaa2adeb70",
+            "__v": 0
+        }
+```
+
+## 7. Develop an automated test that sends concurrent requests to the API to ensure that it can handle multiple users and maintain data consistency.
+
+### Steps:
+1. Create a Postman folder or collection with multiple POST request to "Guest" list the same time.
+2. Implement test code that check if the POST request went through
+3. Run the folder
+
+### Expected result
+- The API can handle multiple request
+
+### Result
+- All test went through 
+- status code 200 OK, on all
+
+## 8. Create an automated test and test if the API correctly handles different HTTP methods (GET, POST, PUT, DELETE) for each endpoint and returns appropriate status codes and responses for each method.
+
+### Steps:
+1. Create a folder
+2. Implement test code one every request (GET, POST, PUT, DELETE) to check if it is the correct status code
+3. Run the folder
+
+### Expected result
+- Expect all test should go through with the correct status code
+
+### Result
+- GET status code: 200 OK
+- POST status code: 201 Created
+- PUT status code: 200 OK
+- DELETE statuscode 200 OK
+
+## 9. Write an automated test to check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests.
+
+### Steps:
+1. GET all event and choose a event and save the object_id
+2. PUT to update the the event name by using the object_id and add the new name
+3. GET the specific object_id to dubble check the change are made and correct 
+
+### Expected result
+- Change should be made with correct data
+
+### Result
+- The specific event was updated with correct data and status code 200 OK
+
+## 10. Design an automated performance test that simulates a large number of users making requests simultaneously to check the API’s performance under heavy load.
+
+### Steps:
+1. Create folder that containes multiple GET request
+2. Implement test code to check correct status code
+3. Run folder with 100 iteration 
 
 ### Expected result
 
 ### Result
+- All the test pass with status code: 200 OK
+- Duration: 8s 536ms 
+- Avg. Resp. Time: 12ms
 
-
-## 7. 
-
-### Steps:
-
-### Expected result
-
-### Result
-
-
-## 8. 
+## 11. Create an automated test that verifies the API can recover gracefully from failures, such as database connection issues or third-party service outages, without compromising data integrity.
 
 ### Steps:
+1. Implement test code for checking status code and response body message
+2. Create a parameters to disconnect from MongoDB: http://localhost:3000/api/event?disconnect=true
+3. Do a POST request
+4. Reconnect by doing a GET request
 
 ### Expected result
+- Expect when disconnected that the POST request wont go through
 
 ### Result
+- Status code 500 Internal Server Error
+- Terminal error message: MongoNotConnectedError: Client must be connected before running operations
+- Response body message:  
 
-
-## 9. 
+## 12. Develop an automated test to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned.
 
 ### Steps:
+1. Create a event GET request with a invalid parameters
+2. Implement a test code to check if the message = "No event found"
 
 ### Expected result
+- An error massage
 
 ### Result
-
-
-## 10. 
-
-### Steps:
-
-### Expected result
-
-### Result
-
-
-## 11. 
-
-### Steps:
-
-### Expected result
-
-### Result
-
-
-## 12. 
-
-### Steps:
-
-### Expected result
-
-### Result
-
+- Status code 404 Not Found
+- The response body return a message
+```
+{
+    "message": "No event found"
+}
+```
 
 ## 13. 
 
