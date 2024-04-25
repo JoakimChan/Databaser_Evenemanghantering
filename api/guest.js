@@ -10,7 +10,7 @@ export default function guest(server, mongoose) {
     try {
       res.json(await Guest.find());  // Använder Mongoose's "find"-metod för att hämta alla "users".
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning av användare." });
+      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
     }
   });
 
@@ -23,7 +23,7 @@ export default function guest(server, mongoose) {
       }
       res.json(guest);
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning av en användare." });
+      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
     }
   });
 
@@ -76,7 +76,7 @@ export default function guest(server, mongoose) {
     try {
       const deleted = await Guest.findByIdAndDelete(req.params.id);
       if (!deleted) {
-        return res.status(404).json({ message: "Användaren hittades inte" });
+        return res.status(404).json({ message: "hittades inte" });
       }
       res.json({ message: "har raderats!" }); // Bekräftelse på att användaren har raderats.
     } catch (error) {

@@ -42,7 +42,7 @@ export default function event(server, mongoose) {
 
       res.json(events);
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning av användare." });
+      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
     }
   });
 
@@ -55,7 +55,7 @@ export default function event(server, mongoose) {
       }
       res.json(one);
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning av en användare." });
+      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
     }
   });
 
@@ -105,7 +105,7 @@ export default function event(server, mongoose) {
     try {
       const deleted = await Event.findByIdAndDelete(req.params.id);
       if (!deleted) {
-        return res.status(404).json({ message: "Användaren hittades inte" });
+        return res.status(404).json({ message: "hittades inte" });
       }
       res.json({ message: "har raderats!" }); // Bekräftelse på att användaren har raderats.
     } catch (error) {
