@@ -4,12 +4,13 @@ import Event from "./model/EventSchema.js"
 import Guest from './model/GuestSchema.js';
 import Venue from './model/VenueSchema.js';
 
-const venueIdList = []
-const guestIdList = []
+const venueIdList = [];
+const guestIdList = [];
+
+const times = 3;
 const startDate = new Date('2024-05-01');
 const endDate = new Date('2024-12-31');
-const times = 2
-const marketingTool = "newspaper";
+const marketingTool = "newpaper";
 
 async function seedDB() {
   try {
