@@ -70,7 +70,14 @@
 1. Create a Get API request that retrieves specific data by filter
 2. Code in VSCode to filter the API
 ```
+      let query = {}; 
 
+      if (req.query.name) {
+        query.name = req.query.name;
+      }
+      if (req.query.marketing) {
+        query.marketing = req.query.marketing;
+      }
 ``` 
 3. Implement a test code that checks if the return body is correct
 4. Send: /Test /4. /GET-request - filterEvent
@@ -92,7 +99,10 @@
 1. Create a Get API request that according to the pagination parameters
 2. Code in VSCode to implement pagination and retrieve the value from the API
 ```
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) || 10
 
+    const events = await Event.paginate(query, { page: page, limit: limit });
 ```
 3. Implement a test code that checks if the response body contains some properties
 4. Send: /Test /5. /GET-request - pagination
@@ -101,9 +111,18 @@
 - Expect the response to match the pagination parameters
 
 ### Result
-- The response contains a pagination list of information according to what the URL is set: page = 1, limit = 3 :
+- The response contains a pagination list of information according to what the URL is set: page = 1, limit = 3 
+example:
 ```
-
+"totalDocs": 7,
+    "limit": 3,
+    "totalPages": 3,
+    "page": 1,
+    "pagingCounter": 1,
+    "hasPrevPage": false,
+    "hasNextPage": true,
+    "prevPage": null,
+    "nextPage": 2
 ```
 
 ## 6.
@@ -123,9 +142,20 @@
 - Expect that the GET and POST requests should handle special characters and non-English text
 
 ### Result
-- API should handle special characters and non-English text:
+- Status code: 201 Created
+- API should handle special characters and non-English text, example:
 ```
-
+{
+            "_id": "662c386f9abfae4f6fe51fc0",
+            "name": "åäö",
+            "date": "2024-11-03T00:00:00.000Z",
+            "marketing": "nätet",
+            "venue": "662b60f322c849d7abb7918b",
+            "guestList": [
+                "662b60f322c849d7abb79192"
+            ],
+            "__v": 0
+        }
 ```
 
 ## 7.
