@@ -32,13 +32,12 @@
 - Expect that the API response body should be in JSON format and the test code should go through
 
 ### Result
-- All the tests went through and with response body where in JSON format:
+- All the tests went through and with response body where in JSON format, example:
 ```
  {
-        "_id": "6626e0fa2ad36acaa2adeb79",
-        "name": "Dewey Klocko",
-        "email": "Keshaun48@yahoo.com",
-        "event": "6626e0fa2ad36acaa2adeb75",
+        "_id": "662b60f322c849d7abb79192",
+        "name": "Alberta Morar",
+        "email": "Johann_VonRueden@gmail.com",
         "__v": 0
     }
 ```
