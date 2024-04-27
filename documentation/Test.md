@@ -247,7 +247,20 @@ example:
 1. Create an API that disconnects from the server
 2. Code in VSCode to handle the API disconnection, event.js:
 ```
+let isConnected = true
 
+if (req.query.disconnect === 'true') {
+        if (isConnected) {
+          await mongoose.disconnect();
+          isConnected = false;
+        }
+      } else {
+        if (!isConnected) {
+          // Återanslut
+          await mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering");
+          isConnected = true;
+        }
+      }
 ```
 3. Implement test codes to check the correct status code and message
 4. Send: /Test /11. /GET-request - getAllEventDisconnect (disconnect)
@@ -259,7 +272,7 @@ example:
   
 ### Result
 - Status code: 500, Internal Server Error
-- Vscode terminal: 
+- Vscode terminal: MongoNotConnectedError: Client must be connected before running operations
 - The response body includes an error message.
   
 ## 12.
@@ -272,7 +285,9 @@ example:
  1. Create a GET API request with an invalid parameter
  2. Code in VSCode to handle invalid parameters, event.js:
 ```
-
+      if (!events || events.docs.length === 0) {
+        return res.status(404).json({ message: "No event found" })
+      }
 ```
 3. implement test codes to check the correct status code and message
 4. Send: /Test /12. /GET-request - invalidParameter
