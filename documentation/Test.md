@@ -32,7 +32,8 @@
 - Expect that the API response body should be in JSON format and the test code should go through
 
 ### Result
-- All the tests went through and with response body where in JSON format, for example:
+- All the tests went through and with the response body where in JSON format
+>Example:
 ```
  {
         "_id": "662b60f322c849d7abb79192",
@@ -68,7 +69,8 @@
 
 ### Steps
 1. Create a Get API request that retrieves specific data by filter
-2. Code in VSCode to filter the API, event.js:
+2. Code in VSCode to filter the API
+>event.js:
 ```
       let query = {}; 
 
@@ -112,7 +114,7 @@
 
 ### Result
 - The response contains a pagination list of information according to what the URL is set: page = 1, limit = 3 
-example:
+>Example:
 ```
 "totalDocs": 7,
     "limit": 3,
@@ -143,7 +145,8 @@ example:
 
 ### Result
 - Status code: 201 Created
-- API should handle special characters and non-English text, for example:
+- API should handle special characters and non-English text,
+>Example:
 ```
 {
             "_id": "662c386f9abfae4f6fe51fc0",
@@ -245,7 +248,8 @@ example:
 
 ### Steps
 1. Create an API that disconnects from the server
-2. Code in VSCode to handle the API disconnection, event.js:
+2. Code in VSCode to handle the API disconnection
+>event.js:
 ```
 let isConnected = true
 
@@ -283,7 +287,8 @@ if (req.query.disconnect === 'true') {
 
 ### Steps
  1. Create a GET API request with an invalid parameter
- 2. Code in VSCode to handle invalid parameters, event.js:
+ 2. Code in VSCode to handle invalid parameters
+>event.js:
 ```
       if (!events || events.docs.length === 0) {
         return res.status(404).json({ message: "No event found" })
