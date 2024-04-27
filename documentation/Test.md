@@ -99,7 +99,8 @@
 
 ### Steps
 1. Create a Get API request that according to the pagination parameters
-2. Code in VSCode to implement pagination and retrieve the value from the API, event.js:
+2. Code in VSCode to implement pagination and retrieve the value from the API
+>event.js:
 ```
     const page = parseInt(req.query.page) || 1
     const limit = parseInt(req.query.limit) || 10
