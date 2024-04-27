@@ -2,12 +2,23 @@
 import express from "express"
 import mongoose from "mongoose"
 import apiRegister from "./apiRegister.js"
+import { rateLimit } from 'express-rate-limit'
 
 // Skapar en instans av Express-appen, detta är vår webbserver.
 const server = express()
 
 // Bestämmer vilken port som servern ska lyssna på.
 const port = 3000
+
+// Skapa en rate limiter med express-rate-limit
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // Tidsfönstret för att begränsa förfrågningar i millisekunder
+  limit: 50, // Maximalt antal tillåtna förfrågningar per IP-adress under tidsfönstret
+  message: 'För många förfrågningar från denna IP, försök igen om en stund.' // Meddelande som sända tillbaka när gränsen är nådd
+});
+
+// Applicera rate limiter på alla API-förfrågningar
+server.use(apiLimiter);
 
 /*
   Servern använder en middleware ( express.json() ) för att omvandla våra request till JSON.

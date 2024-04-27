@@ -231,7 +231,7 @@
 ### Steps
 1. Create a folder that contains multiple GET request
 2. Implement test codes to check the correct status code
-3. Run folder: /Test /10.  (with 100 iterations)
+3. Run folder: /Test /10.  (with 20 iterations)
 
 ### Expected result
 - Expect the API will perform under heavy load
@@ -295,7 +295,7 @@ if (req.query.disconnect === 'true') {
         return res.status(404).json({ message: "No event found" })
       }
 ```
-3. implement test codes to check the correct status code and message
+3. Implement test codes to check the correct status code and message
 4. Send: /Test /12. /GET-request - invalidParameter
 
 ### Expected result
@@ -309,14 +309,21 @@ if (req.query.disconnect === 'true') {
     "message": "No event found"
 }
 ```
+
 ## 13.
 ### task
-- Manual:
+- Manual: Verify that the API correctly implements rate limiting or throttling mechanisms to prevent abuse or excessive use of resources.
 
-- Automated: 
+- Automated: Write an automated test to verify that the API correctly implements any rate limiting or throttling mechanisms to prevent abuse or excessive use of resources.
 
 ### Steps
+1. Create a folder with GET request
+2. Implement test codes to check the correct status code and message
+3. Restart the server
+4. Run folder: /Test /13.  (with more 50 iterations)
 
 ### Expected result
+- Expect that first 50 test will return status code: 200 OK, and after it will send back: 429 Too Many Requests
 
 ### Result
+- Everyting is in line with the expectation

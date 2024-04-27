@@ -16,9 +16,13 @@ npm i express mongoose
 ```
 npm install @faker-js/faker --save-dev
 ```
-> Installations of pagination
+>Installations of pagination
 ```
 npm install mongoose-paginate-v2
+```
+>Installations of express-rate-limit
+```
+npm i express-rate-limit
 ```
 
 ## Postman
