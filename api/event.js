@@ -74,11 +74,11 @@ export default function event(server, mongoose) {
     try {
       // Creates a new Event object with data from the request body.
       const newObject = new Event({
-        name: req.body.name, // Name of the event
-        date: req.body.date, // Date of the event
-        marketing: req.body.marketing, // Marketing channel used for the event
-        venue: req.body.venue, // Venue of the event
-        guestList: req.body.guestList // List of guests attending the event
+        name: req.body.name,
+        date: req.body.date,
+        marketing: req.body.marketing,
+        venue: req.body.venue,
+        guestList: req.body.guestList
       });
 
       // Saves the new Event object to the database.
@@ -100,11 +100,11 @@ export default function event(server, mongoose) {
       // Updates the event with the specified ID using the provided data in the request body.
       const updated = await Event.findByIdAndUpdate(req.params.id, {
         $set: {
-          name: req.body.name, // Updates the name of the event
-          date: req.body.date, // Updates the date of the event
-          marketing: req.body.marketing, // Updates the marketing channel used for the event
-          venue: req.body.venue, // Updates the venue of the event
-          guestList: req.body.guestList // Updates the list of guests attending the event
+          name: req.body.name,
+          date: req.body.date,
+          marketing: req.body.marketing,
+          venue: req.body.venue,
+          guestList: req.body.guestList
         }
       }, { new: true });  // The { new: true } option ensures that the updated event is returned
 

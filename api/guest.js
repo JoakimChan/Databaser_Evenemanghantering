@@ -47,8 +47,8 @@ export default function guest(server, mongoose) {
       for (const data of datas) {
         // Creates a new Guest object with data from the request body.
         const newObject = new Guest({
-          name: data.name, // Name of the guest
-          email: data.email, // Email of the guest
+          name: data.name,
+          email: data.email
         });
 
         // Saves the new Guest object to the database.
@@ -74,8 +74,8 @@ export default function guest(server, mongoose) {
       // Updates the guest with the specified ID using the provided data in the request body.
       const updated = await Guest.findByIdAndUpdate(req.params.id, {
         $set: {
-          name: req.body.name, // Updates the name of the guest
-          email: req.body.email, // Updates the email of the guest
+          name: req.body.name,
+          email: req.body.email
         }
       }, { new: true });  // The { new: true } option ensures that the updated guest is returned
 

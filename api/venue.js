@@ -42,10 +42,10 @@ export default function venue(server, mongoose) {
     try {
       // Creates a new Venue object with data from the request body.
       const newObject = new Venue({
-        name: req.body.name, // Name of the venue
-        address: req.body.address, // Address of the venue
-        capacity: req.body.capacity, // Capacity of the venue
-        price: req.body.price // Price of the venue
+        name: req.body.name,
+        address: req.body.address,
+        capacity: req.body.capacity,
+        price: req.body.price
       });
 
       // Saves the new Venue object to the database.
@@ -67,10 +67,10 @@ export default function venue(server, mongoose) {
       // Updates the venue with the specified ID using the provided data in the request body.
       const updated = await Venue.findByIdAndUpdate(req.params.id, {
         $set: {
-          name: req.body.name, // Updates the name of the venue
-          address: req.body.address, // Updates the address of the venue
-          capacity: req.body.capacity, // Updates the capacity of the venue
-          price: req.body.price // Updates the price of the venue
+          name: req.body.name,
+          address: req.body.address,
+          capacity: req.body.capacity,
+          price: req.body.price
         }
       }, { new: true });  // The { new: true } option ensures that the updated venue is returned
 

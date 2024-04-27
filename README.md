@@ -18,7 +18,7 @@ npm install @faker-js/faker --save-dev
 ```
 > Installations of pagination
 ```
-Mongoose npm install mongoose-paginate-v2
+npm install mongoose-paginate-v2
 ```
 
 ## Postman
