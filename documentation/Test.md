@@ -33,7 +33,7 @@
 
 ### Result
 - All the tests went through and with the response body where in JSON format
->Example:
+>API response body:
 ```
  {
         "_id": "662b60f322c849d7abb79192",
@@ -115,7 +115,7 @@
 
 ### Result
 - The response contains a pagination list of information according to what the URL is set: page = 1, limit = 3 
->Example:
+>API response body:
 ```
 "totalDocs": 7,
     "limit": 3,
@@ -147,7 +147,7 @@
 ### Result
 - Status code: 201 Created
 - API should handle special characters and non-English text,
->Example:
+>API response body:
 ```
 {
             "_id": "662c386f9abfae4f6fe51fc0",
@@ -303,7 +303,7 @@ if (req.query.disconnect === 'true') {
 
 ### Result
 - Status code 404 Not Found
-- The response body returns a message:
+>API response body:
 ```
 {
     "message": "No event found"
