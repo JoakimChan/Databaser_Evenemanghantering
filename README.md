@@ -2,7 +2,13 @@
 
 Jag satsar på betygen VG i detta projekt
 
-## dependencies installations
+## Introduction
+This project involves managing events, venues, and guests as part of a school assignment
+
+The primary objective is to establish a MongoDB database, generate mock data, and utilize Postman to dispatch APIs.
+
+
+## Dependencies installations
 Open the terminal in VScode and tap those commands:
 >Installations of package.json
 ```
@@ -26,7 +32,7 @@ npm i express-rate-limit
 ```
 
 ## Postman
-To access Databaser_Evenemanghantering APIs in Postman, copy the text below to the web browser: 
+To access **Test collection** and **MockServer collection** in Postman, copy the text below to the web browser: 
 ```
 https://gold-firefly-601719.postman.co/workspace/Evenemangshantering~7cc7a967-3d2d-42c6-a391-225636bf6f3d/overview
 ```
@@ -56,9 +62,9 @@ node server.js
 
 Create mock data:
 Start by changing the value of the variables that suit your preference as: 
-- times: how many event, guest, and venue to create
-- start-, endDate: the event start, end date
-- marketingTool = what marketing strategy
+- **times**: how many events, guests, and venues to create
+- **start-**, **endDate**: the event start, end date
+- **marketingTool** = what marketing strategy
 >seedDB.js:
 ```
 const times = 3;
@@ -76,18 +82,19 @@ The structure of all the lists that are created:
 - model/ EventSchema.js
 - model/ GuestSchema.js
 - model/ VenueSchema.js
+
   
 ## API 
-- GET -It is used to retrieve data from a server. It's like asking for a specific web page or information
+- **GET** -It is used to retrieve data from a server. It's like asking for a specific web page or information
 >For example:
 When you enter a URL in your browser's address bar or click on a link, your browser sends a GET request to the server to retrieve the webpage.
-- POST -It is used to send data to a server to create or update a resource. It's like submitting a form with your information.
+- **POST** -It is used to send data to a server to create or update a resource. It's like submitting a form with your information.
 >For example:
 When you fill out a registration form on a website and click "Submit," your browser sends a POST request to the server with the form data.
-- PUT -It is used to send data to a server to create or update a resource, but it's typically used to update existing resources rather than create new ones.
+- **PUT** -It is used to send data to a server to create or update a resource, but it's typically used to update existing resources rather than create new ones.
 >For example:
 If you want to update your profile information on a website, your browser might send a PUT request to the server with the updated data.
-- DEL -It is used to request that a server deletes a specified resource.
+- **DEL** -It is used to request that a server delete a specified resource.
 >For example:
 If you want to delete a file from a server, you might send a DELETE request with the filename to the server.
 
@@ -95,6 +102,7 @@ For all the GET, POST, PUT, and DELETE requests:
 - api/ event.js
 - api/ guest.js
 - api/ venue.js
+
 
 ## documentation
 Documentation on both manual and automated tests: 
