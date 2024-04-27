@@ -2,6 +2,25 @@
 
 Jag satsar på betygen VG i detta projekt
 
+## dependencies installations
+Open the terminal in VScode and tap those commands:
+>Installations of package.json
+```
+npm init -y
+```
+>Installations express and mongoose
+```
+npm i express mongoose
+```
+>Installations of faker
+```
+npm install @faker-js/faker --save-dev
+```
+> Installations of pagination
+```
+Mongoose npm install mongoose-paginate-v2
+```
+
 ## Postman
 To access Databaser_Evenemanghantering APIs in Postman, copy the text below to the web browser: 
 ```
@@ -24,7 +43,11 @@ mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Even
 ```
 
 ## mock data
-start by changing the value of the variables that suit your preference as: 
+- Mock data is fake data that resembles real data but is used for testing or demonstration purposes
+- Helps ensure that applications function correctly and reliably under various conditions
+
+Create mock data:
+Start by changing the value of the variables that suit your preference as: 
 - times: how many event, guest, and venue to create
 - start-, endDate: the event start, end date
 - marketingTool = what marketing strategy
@@ -35,39 +58,32 @@ const startDate = new Date('2024-05-01');
 const endDate = new Date('2024-12-31');
 const marketingTool = "newpaper";
 ```
-when satisfied with the variables run "node seedDB.js" to create mock data.
-
-## dependencies installations
-Open the terminal in VScode and tap those commands:
->Install of package.json
-```
-npm init -y
-```
->Install express and mongoose
-```
-npm i express mongoose
-```
->Install of faker
-```
-npm install @faker-js/faker --save-dev
-```
-> Install of pagination
-```
-Mongoose npm install mongoose-paginate-v2
-```
+When satisfied with the variables run "node seedDB.js" in VScode terminal to create
 
 ## model
 The structure of all the lists that are created:
-- EventSchema.js
-- GuestSchema.js
-- VenueSchema.js
+- model/ EventSchema.js
+- model/ GuestSchema.js
+- model/ VenueSchema.js
   
 ## API 
-For all the GET, POST, PUT, and DELETE requests:
-- event.js
-- guest.js
-- venue.js
+- GET -It is used to retrieve data from a server. It's like asking for a specific web page or information
+>For example:
+When you enter a URL in your browser's address bar or click on a link, your browser sends a GET request to the server to retrieve the webpage.
+- POST -It is used to send data to a server to create or update a resource. It's like submitting a form with your information.
+>For example:
+When you fill out a registration form on a website and click "Submit," your browser sends a POST request to the server with the form data.
+- PUT -It is used to send data to a server to create or update a resource, but it's typically used to update existing resources rather than create new ones.
+>For example:
+If you want to update your profile information on a website, your browser might send a PUT request to the server with the updated data.
+- DEL -It is used to request that a server deletes a specified resource.
+>For example:
+If you want to delete a file from a server, you might send a DELETE request with the filename to the server.
 
+For all the GET, POST, PUT, and DELETE requests:
+- api/ event.js
+- api/ guest.js
+- api/ venue.js
 
 ## documentation
 Documentation on both manual and automated tests: 
