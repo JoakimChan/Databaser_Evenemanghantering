@@ -263,9 +263,9 @@ if (req.query.disconnect === 'true') {
       }
 ```
 3. Implement test codes to check the correct status code and message
-4. Send: /Test /11. /GET-request - getAllEventDisconnect (disconnect)
-5. Send: /Test /11. /POST-request - postEvent (try to POST while disconnected)
-6. Send: /Test /11. /GET-request - getAllEven (reconnect)
+4. Send: /Test /11. /GET-request - getAllEventDisconnect    (disconnect)
+5. Send: /Test /11. /POST-request - postEvent               (try to POST while disconnected)
+6. Send: /Test /11. /GET-request - getAllEven               (reconnect)
 
 ### Expected result
 - Expect when disconnected should not be able to POST or else until reconnected
