@@ -58,7 +58,10 @@ const startDate = new Date('2024-05-01');
 const endDate = new Date('2024-12-31');
 const marketingTool = "newpaper";
 ```
-When satisfied with the variables run "node seedDB.js" in VScode terminal to create
+When satisfied with the variables run the text below in the VScode terminal to create
+```
+node seedDB.js
+```
 
 ## model
 The structure of all the lists that are created:
