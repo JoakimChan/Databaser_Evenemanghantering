@@ -321,7 +321,13 @@ if (req.query.disconnect === 'true') {
 2. code i VScode to implement express-rate-limit
 >server.js
 ```
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 50,
+  message: 'För många förfrågningar från denna IP, försök igen om en stund.'
+});
 
+server.use(apiLimiter);
 ```
 4. Implement test codes to check the correct status code and message
 5. Restart the server
