@@ -3,7 +3,7 @@
 ## 1.
 ### task
 - Manual: Verify that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.
-
+  
 - Automated: Validate that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.
 
 ### Steps
