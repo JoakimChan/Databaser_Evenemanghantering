@@ -317,13 +317,18 @@ if (req.query.disconnect === 'true') {
 - Automated: Write an automated test to verify that the API correctly implements any rate limiting or throttling mechanisms to prevent abuse or excessive use of resources.
 
 ### Steps
-1. Create a folder with GET request
-2. Implement test codes to check the correct status code and message
-3. Restart the server
-4. Run folder: /Test /13.  (with more 50 iterations)
+1. Create a folder with a GET request
+2. code i VScode to implement express-rate-limit
+>server.js
+```
+
+```
+4. Implement test codes to check the correct status code and message
+5. Restart the server
+6. Run folder: /Test /13.  (with more than 50 iterations)
 
 ### Expected result
-- Expect that first 50 test will return status code: 200 OK, and after it will send back: 429 Too Many Requests
+- Expect that the first 50 tests will return status code: 200 OK, and after that, it will send back: 429 Too Many Requests
 
 ### Result
-- Everyting is in line with the expectation
+- Everything is in line with the expectation
