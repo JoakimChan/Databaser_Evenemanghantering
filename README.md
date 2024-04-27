@@ -41,8 +41,7 @@ await mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.ne
 ```
 mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
 ```
-
->To start the server run the text below in the VScode terminal:
+To start the server run the text below in the VScode terminal:
 ```
 node server.js
 ```
@@ -63,7 +62,7 @@ const startDate = new Date('2024-05-01');
 const endDate = new Date('2024-12-31');
 const marketingTool = "newpaper";
 ```
->When satisfied with the variables run the text below in the VScode terminal to create:
+When satisfied with the variables run the text below in the VScode terminal to create:
 ```
 node seedDB.js
 ```
