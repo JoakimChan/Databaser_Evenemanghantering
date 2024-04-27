@@ -50,7 +50,7 @@
 - Automated: Ensure that the API returns the correct HTTP status code (e.g., 400 Bad Request) for an invalid requests.
 
 ### Steps
-1. Create a Get API request with "/%" at the end URL
+1. Create a Get API request with "/%" at the end of URL
 2. Implement test code to check for bad request
 3. Send: /Test /3. /GET-request - badRequest
 
