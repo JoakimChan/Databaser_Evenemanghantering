@@ -12,15 +12,15 @@ https://gold-firefly-601719.postman.co/workspace/Evenemangshantering~7cc7a967-3d
 To connect your own MongoDB change the text on those places in VScode:
 - server.js:
 ```
-
+mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
 ```
 - event.js:
 ```
-
+await mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering");
 ```
 - seedDB.js:
 ```
-
+mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
 ```
 
 ## mock data
