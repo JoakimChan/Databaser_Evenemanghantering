@@ -64,7 +64,7 @@ Create mock data:
 Start by changing the value of the variables that suit your preference as: 
 - **times**: how many events, guests, and venues to create
 - **start-**, **endDate**: the event start, end date
-- **marketingTool** = what marketing strategy
+- **marketingTool**: what marketing strategy
 >seedDB.js:
 ```
 const times = 3;
