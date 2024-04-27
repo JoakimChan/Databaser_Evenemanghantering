@@ -10,15 +10,15 @@ https://gold-firefly-601719.postman.co/workspace/Evenemangshantering~7cc7a967-3d
 
 ## MongoDB
 To connect your own MongoDB change the text on those places in VScode:
-- server.js:
+>server.js:
 ```
 mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
 ```
-- event.js:
+>event.js:
 ```
 await mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering");
 ```
-- seedDB.js:
+>seedDB.js:
 ```
 mongoose.connect("mongodb+srv://chankayin:1234@cluster0.alhuwlj.mongodb.net/Evenemanghantering")
 ```
@@ -28,7 +28,7 @@ start by changing the value of the variables that suit your preference as:
 - times: how many event, guest, and venue to create
 - start-, endDate: the event start, end date
 - marketingTool = what marketing strategy
-example:
+>seedDB.js:
 ```
 const times = 3;
 const startDate = new Date('2024-05-01');
@@ -39,13 +39,22 @@ when satisfied with the variables run "node seedDB.js" to create mock data.
 
 ## dependencies installations
 Open the terminal in VScode and tap those commands:
-- npm init -y
-
-- npm i express mongoose
-
-- npm install @faker-js/faker --save-dev
-
-- Mongoose npm install mongoose-paginate-v2
+>Install of package.json
+```
+npm init -y
+```
+>Install express and mongoose
+```
+npm i express mongoose
+```
+>Install of faker
+```
+npm install @faker-js/faker --save-dev
+```
+> Install of pagination
+```
+Mongoose npm install mongoose-paginate-v2
+```
 
 ## model
 The structure of all the lists that are created:
