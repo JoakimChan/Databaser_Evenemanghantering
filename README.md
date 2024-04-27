@@ -62,4 +62,4 @@ For all the GET, POST, PUT, and DELETE requests:
 
 ## documentation
 Documentation on both manual and automated tests: 
-- Test.md
+- documentation/ Test.md
