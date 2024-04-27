@@ -2,81 +2,110 @@ import Venue from "../model/VenueSchema.js"
 
 export default function venue(server, mongoose) {
 
-  /*
-  Skapar en GET-route på '/api/users'. 
-  När denna route anropas, hämtar den alla dokument från vår "users"-samling och skickar tillbaka dem som ett JSON-svar.
-  */
+  // Creates a GET route to fetch all venues.
   server.get('/api/venue', async (req, res) => {
     try {
-      res.json(await Venue.find());  // Använder Mongoose's "find"-metod för att hämta alla "users".
+      // Fetches all venues using Mongoose's "find" method.
+      const venues = await Venue.find();
+
+      // Sends the fetched venues as a JSON response.
+      res.json(venues);
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
+      // Handles server error if any occurred during fetching.
+      res.status(500).json({ message: "An error occurred on the server while fetching." });
     }
   });
 
-  // Skapar en GET-route för att hämta en specifik användare med ett specifikt ID.
+
+  // Creates a GET route to fetch a specific venue by its ID.
   server.get('/api/venue/:id', async (req, res) => {
     try {
-      const one = await Venue.findById(req.params.id); // Hämtar användaren med ID från databasen.
-      if (!one) {
-        return res.status(404).json({ message: "hittades inte" });
+      // Fetches the venue with the specified ID from the database.
+      const venue = await Venue.findById(req.params.id);
+
+      // Checks if the venue is found and returns it, or returns a 404 error if not found.
+      if (!venue) {
+        return res.status(404).json({ message: "Venue not found" });
       }
-      res.json(one);
+
+      // Sends the venue as a JSON response.
+      res.json(venue);
     } catch (error) {
-      res.status(500).json({ message: "Ett fel uppstod på servern vid hämtning" });
+      // Handles server error if any occurred during fetching.
+      res.status(500).json({ message: "An error occurred on the server while fetching." });
     }
   });
 
-  // Skapar en POST-route för att lägga till en ny användare.
+
+  // Creates a POST route to add a new venue.
   server.post('/api/venue', async (req, res) => {
     try {
+      // Creates a new Venue object with data from the request body.
       const newObject = new Venue({
-        name: req.body.name,
-        address: req.body.address,
-        capacity: req.body.capacity,
-        price: req.body.price
+        name: req.body.name, // Name of the venue
+        address: req.body.address, // Address of the venue
+        capacity: req.body.capacity, // Capacity of the venue
+        price: req.body.price // Price of the venue
       });
+
+      // Saves the new Venue object to the database.
       const savedObject = await newObject.save();
+
+      // Sends the saved Venue object as a JSON response with status code 201 (Created).
       res.status(201).json(savedObject);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Ett fel uppstod på servern vid skapa" });
+      // Handles server error if any occurred during creation.
+      res.status(500).json({ message: "An error occurred on the server while creating." });
     }
   });
 
-  // Skapar en PUT-route för att uppdatera en användare med ett specifikt ID.
+
+  // Creates a PUT route to update a venue with a specific ID.
   server.put('/api/venue/:id', async (req, res) => {
     try {
+      // Updates the venue with the specified ID using the provided data in the request body.
       const updated = await Venue.findByIdAndUpdate(req.params.id, {
         $set: {
-          name: req.body.name,
-          address: req.body.address,
-          capacity: req.body.capacity,
-          price: req.body.price
+          name: req.body.name, // Updates the name of the venue
+          address: req.body.address, // Updates the address of the venue
+          capacity: req.body.capacity, // Updates the capacity of the venue
+          price: req.body.price // Updates the price of the venue
         }
-      }, { new: true });  // Optionen { new: true } ser till att den uppdaterade användaren returneras
+      }, { new: true });  // The { new: true } option ensures that the updated venue is returned
 
+      // Checks if the venue is found and updated, or returns a 404 error if not found.
       if (!updated) {
-        return res.status(404).json({ message: "Hittades inte" });
+        return res.status(404).json({ message: "Venue not found" });
       }
+
+      // Sends the updated venue as a JSON response.
       res.json(updated);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Ett fel uppstod på servern vid uppdatering." });
+      // Handles server error if any occurred during updating.
+      res.status(500).json({ message: "An error occurred on the server while updating." });
     }
   });
 
-  // Skapar en DELETE-route för att radera en användare med ett specifikt ID.
+
+  // Creates a DELETE route to delete a venue with a specific ID.
   server.delete('/api/venue/:id', async (req, res) => {
     try {
+      // Deletes the venue with the specified ID.
       const deleted = await Venue.findByIdAndDelete(req.params.id);
+
+      // Checks if the venue is found and deleted, or returns a 404 error if not found.
       if (!deleted) {
-        return res.status(404).json({ message: "hittades inte" });
+        return res.status(404).json({ message: "Venue not found" });
       }
-      res.json({ message: "har raderats!" }); // Bekräftelse på att användaren har raderats.
+
+      // Sends a confirmation message that the venue has been deleted.
+      res.json({ message: "Venue has been deleted!" });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Ett fel uppstod på servern vid radering." });
+      // Handles server error if any occurred during deletion.
+      res.status(500).json({ message: "An error occurred on the server while deleting." });
     }
   });
 

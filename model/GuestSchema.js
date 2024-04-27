@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
-// Schema för Guest
+// Define schema for Guest
 const guestSchema = new mongoose.Schema({
-  name: String,
-  email: String,
+  name: String, // Name of the guest
+  email: String, // Email of the guest
 });
 
+// Create Guest model from schema
 const Guest = mongoose.model('Guest', guestSchema);
 
-export default Guest
+export default Guest;
