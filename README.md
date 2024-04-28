@@ -34,7 +34,7 @@ npm i express-rate-limit
 ## Postman
 To access **Test collection** and **MockServer collection** in Postman, copy the text below to the web browser: 
 ```
-https://gold-firefly-601719.postman.co/workspace/Evenemangshantering~7cc7a967-3d2d-42c6-a391-225636bf6f3d/overview
+https://www.postman.com/gold-firefly-601719/workspace/evenemangshantering/overview
 ```
 
 ## MongoDB
