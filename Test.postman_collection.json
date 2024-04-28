@@ -1,0 +1,1183 @@
+{
+	"info": {
+		"_postman_id": "639da8b1-b7d2-4866-9496-27fe1c5cbe25",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33841431",
+		"_collection_link": "https://www.postman.com/gold-firefly-601719/workspace/evenemangshantering/collection/33841431-639da8b1-b7d2-4866-9496-27fe1c5cbe25?action=share&source=collection_link&creator=33841431"
+	},
+	"item": [
+		{
+			"name": "1.",
+			"item": [
+				{
+					"name": "getAllVenue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/venue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"venue"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.\n    \n- Validate that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request."
+		},
+		{
+			"name": "2.",
+			"item": [
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"the response is in JSON format\", function(){",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Check if the API returns the expected data format (e.g., JSON, XML) in the response.\n    \n- Verify that the API returns the expected data format (e.g., JSON, XML) in the response."
+		},
+		{
+			"name": "3.",
+			"item": [
+				{
+					"name": "badRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"A bad request\", function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest/%",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest",
+								"%"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Ensure that the API returns the correct HTTP status code (e.g., 400 Bad Request) for an invalid request."
+		},
+		{
+			"name": "4.",
+			"item": [
+				{
+					"name": "filterEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"All Marketing equls to social media\", function(){",
+									"    let jsonData = pm.response.json().docs;",
+									"    jsonData.forEach(function (event){",
+									"        pm.expect(event.marketing).to.equal(\"social media\")",
+									"    })",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?marketing=social media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "marketing",
+									"value": "social media"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test if the API returns the correct data when querying with specific filters or search criteria.\n    \n- Create an automated test that sends a request with specific filters or search criteria and checks if the API returns the correct data."
+		},
+		{
+			"name": "5.",
+			"item": [
+				{
+					"name": "pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response contain paginated property\", function() {",
+									"        pm.expect(pm.response.json()).to.have.property(\"page\");",
+									"        pm.expect(pm.response.json()).to.have.property(\"limit\");",
+									"        pm.expect(pm.response.json()).to.have.property(\"totalPages\");",
+									"    });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?page=1&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API returns paginated results when a large number of records are requested.\n    \n- Write an automated test to verify that the API returns paginated results when a large number of records are requested."
+		},
+		{
+			"name": "6.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postSpecialCharacters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"åäö\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"nätet\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSpecialCharacters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"API accept special caracters\", function() {",
+									"    let jsonData = pm.response.json();",
+									"    pm.expect(jsonData.docs[0].name).to.equal(\"åäö\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?name=åäö",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "åäö"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Check if the API handles special characters and non-English text correctly in input data and returned responses.\n    \n- Test if the API handles special characters and non-English text correctly in input data and returned responses using an automated testing tool."
+		},
+		{
+			"name": "7.",
+			"item": [
+				{
+					"name": "Guest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guest Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guest Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guest Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test the API’s response when sending concurrent requests to ensure that it can handle multiple users and maintain data consistency.\n    \n- Develop an automated test that sends concurrent requests to the API to ensure that it can handle multiple users and maintain data consistency."
+		},
+		{
+			"name": "8.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempID\", jsonData._id)",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"{{$randomFullName}}\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"letter\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"marketing\": \"mail\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test if the API correctly handles different HTTP methods (GET, POST, PUT, DELETE) for each endpoint and returns appropriate status codes and responses for each method.\n    \n- Create an automated test and test if the API correctly handles different HTTP methods (GET, POST, PUT, DELETE) for each endpoint and returns appropriate status codes and responses for each method."
+		},
+		{
+			"name": "9.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempID\", jsonData.docs[0]._id)",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"check if it is the correct data\", function(){",
+									"    let datajson = pm.response.json();",
+									"    pm.expect(datajson.name).to.not.equal(\"hej\")",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"hejdå\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests.\n    \n- Write an automated test to check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests."
+		},
+		{
+			"name": "10.",
+			"item": [
+				{
+					"name": "getAllVenue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/venue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"venue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test the API’s performance under heavy load, simulating a large number of users making requests simultaneously.\n    \n- Design an automated performance test that simulates a large number of users making requests simultaneously to check the API’s performance under heavy load."
+		},
+		{
+			"name": "11.",
+			"item": [
+				{
+					"name": "getAllEventDisconnect",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"pm.test(\"Response contain error message\", function(){",
+									"    let response = pm.response.json();",
+									"    pm.expect(response).to.have.property(\"message\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?disconnect=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "disconnect",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"pm.test(\"Response contain error message\", function(){",
+									"    let response = pm.response.json();",
+									"    pm.expect(response).to.have.property(\"message\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"åäh\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"nätet\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API can recover gracefully from failures, such as database connection issues without compromising data integrity.\n    \n- Create an automated test that verifies the API can recover gracefully from failures, such as database connection issues or third-party service outages, without compromising data integrity."
+		},
+		{
+			"name": "12.",
+			"item": [
+				{
+					"name": "invalidParameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"requests with missing or invalid parameters\"), function () {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(pm.response.json().message).to.eql(\"No event found\")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?marketing=hej",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "marketing",
+									"value": "hej"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test the API’s ability to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned.\n- Develop an automated test to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned."
+		},
+		{
+			"name": "13.",
+			"item": [
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Return 200 and after the limit: 429\", function () {",
+									"    if (pm.info.iteration <= 50) {",
+									"        pm.response.to.have.status(200);",
+									"    } else if (pm.info.iteration > 50) {",
+									"        pm.expect(pm.response.code).to.equal(429);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API correctly implements rate limiting or throttling mechanisms to prevent abuse or excessive use of resources.\n    \n- Write an automated test to verify that the API correctly implements any rate limiting or throttling mechanisms to prevent abuse or excessive use of resources."
+		}
+	]
+}

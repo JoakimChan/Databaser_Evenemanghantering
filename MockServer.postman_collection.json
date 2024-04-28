@@ -1,0 +1,2151 @@
+{
+	"info": {
+		"_postman_id": "aedd413b-8326-4c72-9609-d9b5e9b211d2",
+		"name": "MockServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33841431",
+		"_collection_link": "https://www.postman.com/gold-firefly-601719/workspace/evenemangshantering/collection/33841431-aedd413b-8326-4c72-9609-d9b5e9b211d2?action=share&source=collection_link&creator=33841431"
+	},
+	"item": [
+		{
+			"name": "1.",
+			"item": [
+				{
+					"name": "getAllVenue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/venue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"venue"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllVenue",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/venue",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"venue"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "49"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:29:17 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "748"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ec-Vzpl52jMJ4gRx9+LUWYqnmpJrQE\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"662b60f322c849d7abb7918b\",\n        \"name\": \"Predovic - Fadel\",\n        \"address\": \"3003 Jaron Ford\",\n        \"capacity\": 60,\n        \"price\": 16000,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b60f322c849d7abb7918e\",\n        \"name\": \"Dach and Sons\",\n        \"address\": \"450 Hyatt Drive\",\n        \"capacity\": 40,\n        \"price\": 10000,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b60f322c849d7abb79190\",\n        \"name\": \"Casper and Sons\",\n        \"address\": \"508 Hickle Ways\",\n        \"capacity\": 40,\n        \"price\": 27000,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6110933c53a48660d769\",\n        \"name\": \"Kovacek Group\",\n        \"address\": \"138 Cedar Grove\",\n        \"capacity\": 70,\n        \"price\": 47000,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6110933c53a48660d76c\",\n        \"name\": \"Graham LLC\",\n        \"address\": \"2467 Jacques Meadow\",\n        \"capacity\": 50,\n        \"price\": 43000,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6111933c53a48660d76e\",\n        \"name\": \"Stroman - Gutkowski\",\n        \"address\": \"4396 N East Street\",\n        \"capacity\": 80,\n        \"price\": 44000,\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "- Verify that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request.\n    \n- Validate that the API returns the correct HTTP status code (e.g., 200 OK) for a successful GET request."
+		},
+		{
+			"name": "2.",
+			"item": [
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"the response is in JSON format\", function(){",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllGuest",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/guest",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"guest"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "48"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:30:42 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c1-6eRUDbFrnzSQtQ1hGjz+A6+gk6g\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"662b60f322c849d7abb79192\",\n        \"name\": \"Alberta Morar\",\n        \"email\": \"Johann_VonRueden@gmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b60f322c849d7abb79194\",\n        \"name\": \"Geoffrey Hermiston\",\n        \"email\": \"Oliver_Hammes-Bergnaum@yahoo.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b60f322c849d7abb79196\",\n        \"name\": \"Jean Tremblay\",\n        \"email\": \"Murray.Macejkovic@hotmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6111933c53a48660d770\",\n        \"name\": \"Lorena Gottlieb\",\n        \"email\": \"Candido.Romaguera@hotmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6111933c53a48660d772\",\n        \"name\": \"Otis Smith\",\n        \"email\": \"Sylvan_Rohan0@yahoo.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b6111933c53a48660d774\",\n        \"name\": \"Linda Deckow\",\n        \"email\": \"Shany.Ryan42@gmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662b615f6c3f9954f65d1ef7\",\n        \"name\": \"Essie Simonis\",\n        \"email\": \"Blaise70@yahoo.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662ba0886c3f9954f65d1eff\",\n        \"name\": \"Luther Skiles\",\n        \"email\": \"Tom.Wunsch68@yahoo.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662c3e229abfae4f6fe51fc8\",\n        \"name\": \"Melba Dickens\",\n        \"email\": \"Dudley45@yahoo.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662c3e229abfae4f6fe51fca\",\n        \"name\": \"Ronnie Larson\",\n        \"email\": \"Adrain_Greenfelder95@gmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662c3e229abfae4f6fe51fcc\",\n        \"name\": \"Tricia Watsica\",\n        \"email\": \"Mac65@hotmail.com\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"662c3e229abfae4f6fe51fce\",\n        \"name\": \"Miriam Hills Sr.\",\n        \"email\": \"Rosalee12@yahoo.com\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "- Check if the API returns the expected data format (e.g., JSON, XML) in the response.\n    \n- Verify that the API returns the expected data format (e.g., JSON, XML) in the response."
+		},
+		{
+			"name": "3.",
+			"item": [
+				{
+					"name": "badRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"A bad request\", function(){",
+									"    pm.response.to.have.status(400);",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest/%",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest",
+								"%"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "badRequest",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/guest/%",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"guest",
+										"%"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "47"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:31:19 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1553"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>URIError: Failed to decode param &#39;%&#39;\n            <br> &nbsp; &nbsp;at decodeURIComponent (&lt;anonymous&gt;)\n            <br> &nbsp; &nbsp;at decode_param (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/layer.js:172:12)\n            <br> &nbsp; &nbsp;at Layer.match (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/layer.js:148:15)\n            <br> &nbsp; &nbsp;at matchLayer (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/index.js:585:18)\n            <br> &nbsp; &nbsp;at next (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/index.js:226:15)\n            <br> &nbsp; &nbsp;at jsonParser (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/body-parser/lib/types/json.js:113:7)\n            <br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/layer.js:95:5)\n            <br> &nbsp; &nbsp;at trim_prefix (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/index.js:328:13)\n            <br> &nbsp; &nbsp;at /Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/index.js:286:9\n            <br> &nbsp; &nbsp;at Function.process_params (/Users/joakimchan/Documents/GitHub/Databaser_Evenemanghantering/node_modules/express/lib/router/index.js:346:12)\n        </pre>\n    </body>\n</html>"
+						}
+					]
+				}
+			],
+			"description": "- Ensure that the API returns the correct HTTP status code (e.g., 400 Bad Request) for an invalid request."
+		},
+		{
+			"name": "4.",
+			"item": [
+				{
+					"name": "filterEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"All Marketing equls to social media\", function(){",
+									"    let jsonData = pm.response.json().docs;",
+									"    jsonData.forEach(function (event){",
+									"        pm.expect(event.marketing).to.equal(\"social media\")",
+									"    })",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?marketing=social media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "marketing",
+									"value": "social media"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "filterEvent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event?marketing=social media",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									],
+									"query": [
+										{
+											"key": "marketing",
+											"value": "social media"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "46"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:31:56 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "911"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38f-COcwBBrZHIULi1Ann70DEAaYOA0\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"662b60f322c849d7abb79198\",\n            \"name\": \"hejdå\",\n            \"date\": \"2024-05-14T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919a\",\n            \"name\": \"I Will Follow Him\",\n            \"date\": \"2024-10-21T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918e\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919c\",\n            \"name\": \"Whip It\",\n            \"date\": \"2024-11-22T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb79190\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"totalDocs\": 3,\n    \"limit\": 10,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": false,\n    \"prevPage\": null,\n    \"nextPage\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "- Test if the API returns the correct data when querying with specific filters or search criteria.\n    \n- Create an automated test that sends a request with specific filters or search criteria and checks if the API returns the correct data."
+		},
+		{
+			"name": "5.",
+			"item": [
+				{
+					"name": "pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response contain paginated property\", function() {",
+									"        pm.expect(pm.response.json()).to.have.property(\"page\");",
+									"        pm.expect(pm.response.json()).to.have.property(\"limit\");",
+									"        pm.expect(pm.response.json()).to.have.property(\"totalPages\");",
+									"    });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?page=1&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event?page=1&limit=3",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "45"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:32:55 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "906"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38a-EuQPBCjmtMGrcZ9U+fJxxkrcxBY\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"662b60f322c849d7abb79198\",\n            \"name\": \"hejdå\",\n            \"date\": \"2024-05-14T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919a\",\n            \"name\": \"I Will Follow Him\",\n            \"date\": \"2024-10-21T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918e\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919c\",\n            \"name\": \"Whip It\",\n            \"date\": \"2024-11-22T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb79190\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"totalDocs\": 7,\n    \"limit\": 3,\n    \"totalPages\": 3,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": true,\n    \"prevPage\": null,\n    \"nextPage\": 2\n}"
+						}
+					]
+				}
+			],
+			"description": "- Verify that the API returns paginated results when a large number of records are requested.\n    \n- Write an automated test to verify that the API returns paginated results when a large number of records are requested."
+		},
+		{
+			"name": "6.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllEvent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "44"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:36:51 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1866"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"74a-pQq24Az6Od2lbRxvHHlpPQW2mA0\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"662b60f322c849d7abb79198\",\n            \"name\": \"hejdå\",\n            \"date\": \"2024-05-14T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919a\",\n            \"name\": \"I Will Follow Him\",\n            \"date\": \"2024-10-21T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918e\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919c\",\n            \"name\": \"Whip It\",\n            \"date\": \"2024-11-22T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb79190\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d776\",\n            \"name\": \"The Sounds of Silence\",\n            \"date\": \"2024-05-29T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6110933c53a48660d769\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d778\",\n            \"name\": \"Toxic\",\n            \"date\": \"2024-08-06T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6110933c53a48660d76c\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d77a\",\n            \"name\": \"Stay (I Missed You)\",\n            \"date\": \"2024-06-04T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6111933c53a48660d76e\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662c386f9abfae4f6fe51fc0\",\n            \"name\": \"åäö\",\n            \"date\": \"2024-11-03T00:00:00.000Z\",\n            \"marketing\": \"nätet\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\"\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"totalDocs\": 7,\n    \"limit\": 10,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": false,\n    \"prevPage\": null,\n    \"nextPage\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "postSpecialCharacters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"åäö\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"nätet\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "postSpecialCharacters",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"name\": \"åäö\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"nätet\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "43"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:37:13 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "189"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bd-dP04TrhVc6UqR0bQbXpPX0qsRUs\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"åäö\",\n    \"date\": \"2024-11-03T00:00:00.000Z\",\n    \"marketing\": \"nätet\",\n    \"venue\": \"662b60f322c849d7abb7918b\",\n    \"guestList\": [\n        \"662b60f322c849d7abb79192\"\n    ],\n    \"_id\": \"662d53e93d5f02757e844882\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "getSpecialCharacters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"API accept special caracters\", function() {",
+									"    let jsonData = pm.response.json();",
+									"    pm.expect(jsonData.docs[0].name).to.equal(\"åäö\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?name=åäö",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "åäö"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getSpecialCharacters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event?name=åäö",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "åäö"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "42"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:37:35 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "529"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"211-AnpFbwXdBVQlNxLvdWDvI/xOyqU\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"662c386f9abfae4f6fe51fc0\",\n            \"name\": \"åäö\",\n            \"date\": \"2024-11-03T00:00:00.000Z\",\n            \"marketing\": \"nätet\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662d53e93d5f02757e844882\",\n            \"name\": \"åäö\",\n            \"date\": \"2024-11-03T00:00:00.000Z\",\n            \"marketing\": \"nätet\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\"\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"totalDocs\": 2,\n    \"limit\": 10,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": false,\n    \"prevPage\": null,\n    \"nextPage\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "- Check if the API handles special characters and non-English text correctly in input data and returned responses.\n    \n- Test if the API handles special characters and non-English text correctly in input data and returned responses using an automated testing tool."
+		},
+		{
+			"name": "7.",
+			"item": [
+				{
+					"name": "Guest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guest",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/guest",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"guest"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "41"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:38:42 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"66-Joqr0pjzfxUwuklHJ5TTbzkZVj4\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Angelica Rau\",\n        \"email\": \"Ashlee_Lindgren@gmail.com\",\n        \"_id\": \"662d54423d5f02757e844886\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Guest Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guest Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/guest",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"guest"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "40"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:39:08 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-73D50HHVVbGYqnYMkbXidxqNdbw\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Wilfred Rice\",\n        \"email\": \"Darlene_Crooks@yahoo.com\",\n        \"_id\": \"662d545c3d5f02757e844888\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Guest Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guest Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n{\n    \"name\" : \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/guest",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"guest"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "39"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:39:44 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714247058"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-Yqw9m78c5iVzBSh2jrjYPYC6sdQ\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Essie Feil\",\n        \"email\": \"Alanis_OReilly@yahoo.com\",\n        \"_id\": \"662d54803d5f02757e84488a\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "- Test the API’s response when sending concurrent requests to ensure that it can handle multiple users and maintain data consistency.\n    \n- Develop an automated test that sends concurrent requests to the API to ensure that it can handle multiple users and maintain data consistency."
+		},
+		{
+			"name": "8.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getAllEvent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "49"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:46:08 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714248069"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2056"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"808-zwmMGRlbC7u8OOdceg4EIqtouD4\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"docs\": [\n        {\n            \"_id\": \"662b60f322c849d7abb79198\",\n            \"name\": \"hejdå\",\n            \"date\": \"2024-05-14T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919a\",\n            \"name\": \"I Will Follow Him\",\n            \"date\": \"2024-10-21T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb7918e\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b60f322c849d7abb7919c\",\n            \"name\": \"Whip It\",\n            \"date\": \"2024-11-22T00:00:00.000Z\",\n            \"marketing\": \"social media\",\n            \"venue\": \"662b60f322c849d7abb79190\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\",\n                \"662b60f322c849d7abb79194\",\n                \"662b60f322c849d7abb79196\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d776\",\n            \"name\": \"The Sounds of Silence\",\n            \"date\": \"2024-05-29T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6110933c53a48660d769\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d778\",\n            \"name\": \"Toxic\",\n            \"date\": \"2024-08-06T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6110933c53a48660d76c\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662b6111933c53a48660d77a\",\n            \"name\": \"Stay (I Missed You)\",\n            \"date\": \"2024-06-04T00:00:00.000Z\",\n            \"marketing\": \"newpaper\",\n            \"venue\": \"662b6111933c53a48660d76e\",\n            \"guestList\": [\n                \"662b6111933c53a48660d770\",\n                \"662b6111933c53a48660d772\",\n                \"662b6111933c53a48660d774\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662c386f9abfae4f6fe51fc0\",\n            \"name\": \"åäö\",\n            \"date\": \"2024-11-03T00:00:00.000Z\",\n            \"marketing\": \"nätet\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\"\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"662d53e93d5f02757e844882\",\n            \"name\": \"åäö\",\n            \"date\": \"2024-11-03T00:00:00.000Z\",\n            \"marketing\": \"nätet\",\n            \"venue\": \"662b60f322c849d7abb7918b\",\n            \"guestList\": [\n                \"662b60f322c849d7abb79192\"\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"totalDocs\": 8,\n    \"limit\": 10,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"pagingCounter\": 1,\n    \"hasPrevPage\": false,\n    \"hasNextPage\": false,\n    \"prevPage\": null,\n    \"nextPage\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "createEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempID\", jsonData._id)",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"{{$randomFullName}}\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"letter\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createEvent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"name\": \"{{$randomFullName}}\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"letter\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://d2421052-b3b0-41c9-82a5-f2bbe75c00ad.mock.pstmn.io/api/event",
+									"protocol": "https",
+									"host": [
+										"d2421052-b3b0-41c9-82a5-f2bbe75c00ad",
+										"mock",
+										"pstmn",
+										"io"
+									],
+									"path": [
+										"api",
+										"event"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "48"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 19:46:49 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714248069"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c3-IA0qKS1Pa+TtanuEMLK2TkiZpCI\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Della Hickle\",\n    \"date\": \"2024-11-03T00:00:00.000Z\",\n    \"marketing\": \"letter\",\n    \"venue\": \"662b60f322c849d7abb7918b\",\n    \"guestList\": [\n        \"662b60f322c849d7abb79192\"\n    ],\n    \"_id\": \"662d56293d5f02757e84488e\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "updateEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"marketing\": \"mail\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateEvent",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"marketing\": \"mail\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/event/{{tempID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"event",
+										"{{tempID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "50"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "49"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Apr 2024 20:01:35 GMT"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1714248996"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2-k+VI786qQLT8IphwGHET/ioMNdM\""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"662d59573d5f02757e844899\",\n    \"name\": \"Jackie Hickle\",\n    \"date\": \"2024-11-03T00:00:00.000Z\",\n    \"marketing\": \"mail\",\n    \"venue\": \"662b60f322c849d7abb7918b\",\n    \"guestList\": [\n        \"662b60f322c849d7abb79192\"\n    ],\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			],
+			"description": "- Test if the API correctly handles different HTTP methods (GET, POST, PUT, DELETE) for each endpoint and returns appropriate status codes and responses for each method.\n    \n- Create an automated test and test if the API correctly handles different HTTP methods (GET, POST, PUT, DELETE) for each endpoint and returns appropriate status codes and responses for each method."
+		},
+		{
+			"name": "9.",
+			"item": [
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempID\", jsonData.docs[0]._id)",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"check if it is the correct data\", function(){",
+									"    let datajson = pm.response.json();",
+									"    pm.expect(datajson.name).to.not.equal(\"hej\")",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"hejdå\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event/{{tempID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"{{tempID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests.\n    \n- Write an automated test to check if the API correctly handles updates to existing records, ensuring that changes are saved and reflected in subsequent requests."
+		},
+		{
+			"name": "10.",
+			"item": [
+				{
+					"name": "getAllVenue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/venue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"venue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test the API’s performance under heavy load, simulating a large number of users making requests simultaneously.\n    \n- Design an automated performance test that simulates a large number of users making requests simultaneously to check the API’s performance under heavy load."
+		},
+		{
+			"name": "11.",
+			"item": [
+				{
+					"name": "getAllEventDisconnect",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"pm.test(\"Response contain error message\", function(){",
+									"    let response = pm.response.json();",
+									"    pm.expect(response).to.have.property(\"message\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?disconnect=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "disconnect",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"pm.test(\"Response contain error message\", function(){",
+									"    let response = pm.response.json();",
+									"    pm.expect(response).to.have.property(\"message\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"åäh\",\n\"date\": \"2024-11-03T00:00:00.000+00:00\",\n\"marketing\": \"nätet\",\n\"venue\": \"{{tempVenue}}\",\n\"guestList\": \"{{tempGuest}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.environment.set(\"tempVenue\", jsonData.docs[0].venue)",
+									"",
+									"pm.environment.set(\"tempGuest\", jsonData.docs[0].guestList[0])",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API can recover gracefully from failures, such as database connection issues without compromising data integrity.\n    \n- Create an automated test that verifies the API can recover gracefully from failures, such as database connection issues or third-party service outages, without compromising data integrity."
+		},
+		{
+			"name": "12.",
+			"item": [
+				{
+					"name": "invalidParameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"requests with missing or invalid parameters\"), function () {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(pm.response.json().message).to.eql(\"No event found\")",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/event?marketing=hej",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event"
+							],
+							"query": [
+								{
+									"key": "marketing",
+									"value": "hej"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Test the API’s ability to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned.\n- Develop an automated test to handle edge cases, such as requests with missing or invalid parameters, and ensure that appropriate error messages are returned."
+		},
+		{
+			"name": "13.",
+			"item": [
+				{
+					"name": "getAllGuest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Return 200 and after the limit: 429\", function () {",
+									"    if (pm.info.iteration <= 50) {",
+									"        pm.response.to.have.status(200);",
+									"    } else if (pm.info.iteration > 50) {",
+									"        pm.expect(pm.response.code).to.equal(429);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/guest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"guest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Verify that the API correctly implements rate limiting or throttling mechanisms to prevent abuse or excessive use of resources.\n    \n- Write an automated test to verify that the API correctly implements any rate limiting or throttling mechanisms to prevent abuse or excessive use of resources."
+		}
+	]
+}
