@@ -8,7 +8,7 @@
 
 ### Steps
 1. Create a GET API request for the list you want to retrieve data from
-2. Implement a test code to check the status code
+2. Implement a test code in Postman to check the status code
 3. Send: /Test /1. /GET-request - getAllVenue
 
 ### Expected result
@@ -25,7 +25,7 @@
 
 ### Steps
 1. Create a Get API request for the list you want to retrieve data from
-2. Implement test code to check the request is in JSON format
+2. Implement test code in Postman to check the request is in JSON format
 3. Send: /Test /2. /GET-request - getAllGuest
 
 ### Expected result
@@ -51,7 +51,7 @@
 
 ### Steps
 1. Create a Get API request with "/%" at the end of URL
-2. Implement test code to check for bad request
+2. Implement test code in Postman to check for bad request
 3. Send: /Test /3. /GET-request - badRequest
 
 ### Expected result
@@ -81,7 +81,7 @@
         query.marketing = req.query.marketing;
       }
 ``` 
-3. Implement a test code that checks if the return body is correct
+3. Implement a test code in Postman that checks if the return body is correct
 4. Send: /Test /4. /GET-request - filterEvent
 
 ### Expected result
@@ -107,7 +107,7 @@
 
     const events = await Event.paginate(query, { page: page, limit: limit });
 ```
-3. Implement a test code that checks if the response body contains some properties
+3. Implement a test code in Postman that checks if the response body contains some properties
 4. Send: /Test /5. /GET-request - pagination
 
 ### Expected result
@@ -136,7 +136,7 @@
 
 ### Steps
 1.  Create API requests that POST, GET data that contains special characters and non-English
-2.  Implement a test code that checks the status code 201 created and if the GET contains special characters and non-English
+2.  Implement a test code in Postman that checks the status code 201 created and if the GET contains special characters and non-English
 3.  Send: /Test /6. /GET-request - getAllEvent (to store tempVenue and tempGuest)
 4.  Send: /Test /6. /POST-request - postSpecialCharacters
 5.  Send: /Test /6. /GET-request - getSpecialCharacters
@@ -170,7 +170,7 @@
 
 ### Steps
 1.  Create API few POST requests in a folder
-2.  Implement a test code that checks the status code 201 created
+2.  Implement a test code in Postman that checks the status code 201 created
 3.  Run folder: /Test /7.
 
 ### Expected result
@@ -188,7 +188,7 @@
 
 ### Steps
 1.  Create API requests that GET, POST, PUT, and DEL
-2.  Implement a test code that checks the correct status
+2.  Implement a test code in Postman that checks the correct status
 3.  Send: /Test /8. /GET-request - getAllEvent
 4.  Send: /Test /8. /POST-request - createEvent
 5.  Send: /Test /8. /PUT-request - updateEvent
@@ -211,7 +211,7 @@
 
 ### Steps
 1.  Create API GET, and PUT requests
-2.  Implement a test code that checks the correct status and if the data is correct
+2.  Implement a test code in Postman that checks the correct status and if the data is correct
 3.  Send: /Test /9. /GET-request - getAllEvent (to store tempID)
 4.  Send: /Test /9. /PUT-request - updateEvent
 5.  Send: /Test /9. /GET-request - getOneEvent
@@ -230,7 +230,7 @@
 
 ### Steps
 1. Create a folder that contains multiple GET request
-2. Implement test codes to check the correct status code
+2. Implement test codes in Postman to check the correct status code
 3. Run folder: /Test /10.  (with 20 iterations)
 
 ### Expected result
@@ -267,7 +267,7 @@ if (req.query.disconnect === 'true') {
         }
       }
 ```
-3. Implement test codes to check the correct status code and message
+3. Implement test codes in Postman to check the correct status code and message
 4. Send: /Test /11. /GET-request - getAllEventDisconnect    (disconnect)
 5. Send: /Test /11. /POST-request - postEvent               (try to POST while disconnected)
 6. Send: /Test /11. /GET-request - getAllEven               (reconnect)
@@ -295,7 +295,7 @@ if (req.query.disconnect === 'true') {
         return res.status(404).json({ message: "No event found" })
       }
 ```
-3. Implement test codes to check the correct status code and message
+3. Implement test codes in Postman to check the correct status code and message
 4. Send: /Test /12. /GET-request - invalidParameter
 
 ### Expected result
@@ -329,7 +329,7 @@ const apiLimiter = rateLimit({
 
 server.use(apiLimiter);
 ```
-4. Implement test codes to check the correct status code and message
+4. Implement test codes in Postman to check the correct status code and message
 5. Restart the server
 6. Run folder: /Test /13.  (with more than 50 iterations)
 
